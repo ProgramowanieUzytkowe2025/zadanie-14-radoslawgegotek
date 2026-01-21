@@ -1,0 +1,282 @@
+/* App.css - Pełny arkusz stylów */
+
+:root {
+  --primary-color: #3182ce;
+  --danger-color: #e53e3e;
+  --success-color: #38a169;
+  --bg-color: #f7fafc;
+  --text-color: #2d3748;
+  --border-radius: 12px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 1. Nagłówek i Nawigacja */
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #edf2f7;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e0;
+  background: white;
+  cursor: pointer;
+}
+
+/* 2. Siatka Kafelków (Punkt 1) */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.tile {
+  background: white;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
+}
+
+.tile h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 10px;
+}
+
+.tile p {
+  margin: 10px 0;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #718096;
+  margin-right: 5px;
+}
+
+/* Przyciski na kafelkach (Punkt 2 i 3) */
+.tile-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.tile-btns button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-edit { background-color: #ebf8ff; color: var(--primary-color); }
+.btn-delete { background-color: #fff5f5; color: var(--danger-color); }
+.tile-btns button:hover { opacity: 0.8; }
+
+/* 3. Formularz (Punkt 3, 4, 5) */
+.form-card {
+  max-width: 500px;
+  margin: 40px auto;
+  background: white;
+  padding: 40px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.styled-form label {
+  font-weight: 600;
+  margin-bottom: -15px;
+  font-size: 0.9rem;
+}
+
+.styled-form input[type="text"],
+.styled-form input[type="number"] {
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.error-msg {
+  background-color: #fff5f5;
+  color: var(--danger-color);
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--danger-color);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn-save { background: var(--primary-color); color: white; border: none; padding: 12px; border-radius: 8px; flex: 2; cursor: pointer; }
+.btn-back { background: #edf2f7; color: #4a5568; border: none; padding: 12px; border-radius: 8px; flex: 1; cursor: pointer; }
+
+/* 4. Okno Dialogowe / Modal (Punkt 6) */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-box {
+  background: white;
+  padding: 35px;
+  border-radius: var(--border-radius);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-confirm { background: var(--danger-color); color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; margin-right: 10px; font-weight: bold; }
+.btn-cancel { background: #edf2f7; color: #4a5568; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+/* 5. Globalny Loader (Punkt 9) */
+.loader-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(131, 110, 110, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: white;
+}
+
+.loader-text {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* 6. Komunikaty Toast (Punkt 8) */
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  min-width: 250px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.toast.success { background-color: var(--success-color); }
+.toast.error { background-color: var(--danger-color); }
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Przycisk Dodaj w nagłówku */
+.btn-add {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.loader-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(121, 120, 120, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Dodaj ten element do HTML w App.js */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
